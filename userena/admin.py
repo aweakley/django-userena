@@ -11,11 +11,10 @@ class UserenaSignupInline(admin.StackedInline):
     model = UserenaSignup
     max_num = 1
 
-class UserenaAdmin(UserAdmin, GuardedModelAdmin):
+class UserenaAdmin(GuardedModelAdmin):
     inlines = [UserenaSignupInline, ]
     list_display = ('username', 'email', 'first_name', 'last_name',
                     'is_staff', 'date_joined')
 
-admin.site.unregister(User)
-admin.site.register(User, UserenaAdmin)
+
 admin.site.register(get_profile_model())
