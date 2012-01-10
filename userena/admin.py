@@ -11,7 +11,7 @@ class UserenaSignupInline(admin.StackedInline):
     model = UserenaSignup
     max_num = 1
 
-class UserenaAdmin(GuardedModelAdmin):
+class UserenaAdmin(UserAdmin, GuardedModelAdmin):
     inlines = [UserenaSignupInline, ]
     list_display = ('username', 'email', 'first_name', 'last_name',
                     'is_staff', 'date_joined')
